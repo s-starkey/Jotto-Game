@@ -6,6 +6,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 
@@ -101,6 +103,18 @@ public class WordBank {
 	}
 	
 	
+	public char[] uniqueCharacters(String guess){
+		char[] guessSet = new char[guess.length()];
+		Set<Character> set = new HashSet<Character>();
+		for(int i=0; i<guess.length(); i++){
+			set.add(guess.charAt(i));
+		}
+		
+		System.out.println(set);
+		return guessSet;
+		
+	}
+	
 	
 	/**
 	 * Player takes a guess at the secret word
@@ -109,7 +123,7 @@ public class WordBank {
 	public void checkWord(String guess){
 		String secretWord = getChosen();
 		if (guess.equalsIgnoreCase(secretWord)){
-			System.out.println("WOW! I can't believe you got it on your first guess\n YOU WIN!");
+			System.out.println("WOW! I can't believe you got it on your first guess\nYOU WIN!");
 		}else{
 			int count = 0;
 			for(int i=0; i<secretWord.length(); i++){

@@ -8,6 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		Sleep pause = new Sleep();
 		WordBank bank = new WordBank();
+		bank.uniqueCharacters("rrrrrrr");
 		
 		int choice;
 		String proposedWord;
