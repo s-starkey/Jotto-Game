@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		Sleep pause = new Sleep();
 		WordBank bank = new WordBank();
-		bank.uniqueCharacters("rrrrrrr");
+	
 		
 		int choice;
 		String proposedWord;
@@ -38,7 +38,7 @@ public class Main {
 				}else{
 					System.out.println("Ok, I have a word.\nMake your first guess.");
 					String guess = stringConsole.next();
-					bank.checkWord(guess);
+					System.out.println(bank.checkWord(guess));
 				}
 				
 				

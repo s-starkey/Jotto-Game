@@ -6,8 +6,11 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 
 
@@ -103,15 +106,14 @@ public class WordBank {
 	}
 	
 	
-	public char[] uniqueCharacters(String guess){
-		char[] guessSet = new char[guess.length()];
+	public Set<Character> uniqueCharacters(String guess){
+		//char[] guessSet = new char[guess.length()];
 		Set<Character> set = new HashSet<Character>();
 		for(int i=0; i<guess.length(); i++){
 			set.add(guess.charAt(i));
 		}
-		
-		System.out.println(set);
-		return guessSet;
+		//System.out.println(set);
+		return set;
 		
 	}
 	
@@ -120,15 +122,18 @@ public class WordBank {
 	 * Player takes a guess at the secret word
 	 * @param guess
 	 */
-	public void checkWord(String guess){
+	public int checkWord(String guess){
+		int count = 0;
 		String secretWord = getChosen();
+		System.out.println("Secret Word " + secretWord);
 		if (guess.equalsIgnoreCase(secretWord)){
 			System.out.println("WOW! I can't believe you got it on your first guess\nYOU WIN!");
 		}else{
-			int count = 0;
-			for(int i=0; i<secretWord.length(); i++){
+			System.out.println(guess);
+			System.out.println(uniqueCharacters(guess));
+			for (char s : (uniqueCharacters(guess))) {
 				for(int j=0; j<secretWord.length(); j++){
-					if(guess.charAt(i) == secretWord.charAt(j)){
+					if(s == secretWord.charAt(j)){
 						count++;
 						
 					}
@@ -136,6 +141,7 @@ public class WordBank {
 			}
 		}
 		
+		return count;
 		
 	}
 	
