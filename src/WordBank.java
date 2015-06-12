@@ -125,12 +125,13 @@ public class WordBank {
 	public int checkWord(String guess){
 		int count = 0;
 		String secretWord = getChosen();
-		System.out.println("Secret Word " + secretWord);
+		//System.out.println("Secret Word " + secretWord);
 		if (guess.equalsIgnoreCase(secretWord)){
 			System.out.println("WOW! I can't believe you got it on your first guess\nYOU WIN!");
+			return -1;
 		}else{
-			System.out.println(guess);
-			System.out.println(uniqueCharacters(guess));
+			//System.out.println(guess);
+			//System.out.println(uniqueCharacters(guess));
 			for (char s : (uniqueCharacters(guess))) {
 				for(int j=0; j<secretWord.length(); j++){
 					if(s == secretWord.charAt(j)){

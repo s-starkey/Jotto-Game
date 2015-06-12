@@ -38,7 +38,27 @@ public class Main {
 				}else{
 					System.out.println("Ok, I have a word.\nMake your first guess.");
 					String guess = stringConsole.next();
-					System.out.println(bank.checkWord(guess));
+					int response = bank.checkWord(guess);
+					if (response == -1){
+						
+					}else if(response == 1){
+						System.out.println("You matched " + response + " letter");
+					}else{
+						System.out.println("You matched " + response + " letters");
+					}
+					
+					while(response != -1){
+						System.out.println("Guess again");
+						guess = stringConsole.next();
+						response = bank.checkWord(guess);
+						if (response == -1){
+							
+						}else if(response == 1){
+							System.out.println("You matched " + response + " letter");
+						}else{
+							System.out.println("You matched " + response + " letters");
+						}
+					}
 				}
 				
 				
