@@ -37,28 +37,20 @@ public class Main {
 					System.err.println("There are no more words in the Word Bank\n");
 				}else{
 					System.out.println("Ok, I have a word.\nMake your first guess.");
-					String guess = stringConsole.next();
-					int response = bank.checkWord(guess);
-					if (response == -1){
-						
-					}else if(response == 1){
-						System.out.println("You matched " + response + " letter");
-					}else{
-						System.out.println("You matched " + response + " letters");
-					}
-					
-					while(response != -1){
-						System.out.println("Guess again");
-						guess = stringConsole.next();
+					int response;
+					do{
+						String guess = stringConsole.next();
 						response = bank.checkWord(guess);
 						if (response == -1){
-							
+						
 						}else if(response == 1){
 							System.out.println("You matched " + response + " letter");
+							System.out.println("Guess Again");
 						}else{
 							System.out.println("You matched " + response + " letters");
+							System.out.println("Guess Again");
 						}
-					}
+					}while(response != -1);
 				}
 				
 				

@@ -127,7 +127,7 @@ public class WordBank {
 		String secretWord = getChosen();
 		//System.out.println("Secret Word " + secretWord);
 		if (guess.equalsIgnoreCase(secretWord)){
-			System.out.println("WOW! I can't believe you got it on your first guess\nYOU WIN!");
+			System.out.println("WOW! I can't believe you got it!\nYOU WIN!");
 			return -1;
 		}else{
 			//System.out.println(guess);
