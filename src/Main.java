@@ -8,6 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		Sleep pause = new Sleep();
 		WordBank bank = new WordBank();
+		GuessList pastGuesses = new GuessList();
 	
 		
 		int choice;
@@ -19,6 +20,8 @@ public class Main {
 		System.out.println("*       WELCOME TO JOTTO         *");
 		System.out.println("*                                *");
 		System.out.println("**********************************");
+		
+		
 		
 		do{
 			System.out.println("1) Play Jotto");
@@ -39,17 +42,26 @@ public class Main {
 					System.out.println("Ok, I have a word.\nMake your first guess.");
 					int response;
 					do{
+						Guess newGuess = new Guess();
 						String guess = stringConsole.next();
 						response = bank.checkWord(guess);
+						newGuess.setGuessedWord(guess);
+						newGuess.setMatches(response);
 						if (response == -1){
 						
 						}else if(response == 1){
+							pastGuesses.add(newGuess);
 							System.out.println("You matched " + response + " letter");
 							System.out.println("Guess Again");
+							pastGuesses.toString();
 						}else{
+							pastGuesses.add(newGuess);
 							System.out.println("You matched " + response + " letters");
 							System.out.println("Guess Again");
+							pastGuesses.toString();
 						}
+						
+						
 					}while(response != -1);
 				}
 				
