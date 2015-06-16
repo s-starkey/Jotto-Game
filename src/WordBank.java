@@ -152,7 +152,6 @@ public class WordBank {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString(){
-		System.out.println();
 		for (String word : words){
 			System.out.printf("%s\n", word);
 		}

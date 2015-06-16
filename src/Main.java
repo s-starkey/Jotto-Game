@@ -30,6 +30,7 @@ public class Main {
 			System.out.println("0) Exit");
 			System.out.print("What would you like to do?");
 			choice = console.nextInt();
+			//System.out.println();
 			
 			switch(choice){
 			case 1:
@@ -68,16 +69,16 @@ public class Main {
 				
 				break;
 			case 2:
-				System.out.println("Enter the word you would like to add: ");
+				System.out.print("Enter the word you would like to add: ");
 				proposedWord = stringConsole.next();
 				bank.addWord(proposedWord);
+				bank.updateWordBank();
 				break;
 			case 3:
 				bank.toString();
 				break;
 			case 0:
-				System.out.println("zero");
-				bank.updateWordBank();
+				System.out.println("Good-bye!");
 				break;
 			}
 			pause.hold(1000);

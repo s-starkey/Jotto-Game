@@ -3,3 +3,7 @@ farts
 sleep
 jumps
 scott
+plane
+craft
+slips
+draft
